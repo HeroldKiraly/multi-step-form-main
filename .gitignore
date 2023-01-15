@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Frontend Mentor Files
+/design
+style-guide.md
+*.sketch
+*.fig
+*.xd
+.prettierignore

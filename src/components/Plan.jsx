@@ -1,7 +1,9 @@
+import React from 'react';
+
 const Plan = () => {
     return (
         <>
-            <h1>Hello World</h1>
+            <h1>Plan</h1>
         </>
     );
 };

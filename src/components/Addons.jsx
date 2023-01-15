@@ -3,7 +3,7 @@ import React from 'react';
 const Addons = () => {
     return (
         <>
-            {/* Addons Component Here */}
+            <h1>Addons</h1>
         </>
     );
 };
