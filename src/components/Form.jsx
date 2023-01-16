@@ -54,8 +54,8 @@ const Form = () => {
                     </div>
                 </aside>
                 <section>
-                    <Info />
-                    {/* <Plan /> */}
+                    {/* <Info /> */}
+                    <Plan />
                     {/* <Addons /> */}
                     {/* <Summary /> */}
                 </section>
