@@ -6,9 +6,21 @@ import Summary from './Summary';
 const Form = () => {
     return (
         <>
+            Step 1
+            Your info
+
+            Step 2
+            Select plan
+
+            Step 3
+            Add-ons
+
+            Step 4
+            Summary
+
             <Info />
-            <Addons />
             <Plan />
+            <Addons />
             <Summary />
         </>
     );
