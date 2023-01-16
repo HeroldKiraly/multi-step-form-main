@@ -3,24 +3,55 @@ import React from 'react';
 const Addons = () => {
     return (
         <>
-            <h1>Addons</h1>
-            Pick add-ons
-            Add-ons help enhance your gaming experience.
+            <div className="addons-content">
+                <h1 className="heading">Pick add-ons</h1>
+                <p className="subheading">
+                    Add-ons help enhance your gaming experience.
+                </p>
 
-            Online service
-            Access to multiplayer games
-            +$1/mo
+                <div className="addon-container">
+                    <div className="addon-text">
+                        <input type="checkbox"></input>
+                        <div>
+                            <label>Online services</label>
+                            <span>Access to multiplayer games</span>
+                        </div>
+                    </div>
+                    <span>+$1/mo</span>
+                </div>
 
-            Larger storage
-            Extra 1TB of cloud save
-            +$2/mo
+                <div className="addon-container">
+                    <div className="addon-text">
+                        <input type="checkbox"></input>
+                        <div>
+                            <label>Larger storage</label>
+                            <span>Extra 1TB of cloud save</span>
+                        </div>
+                    </div>
+                    <span>+$2/mo</span>
+                </div>
 
-            Customizable Profile
-            Custom theme on your profile
-            +$2/mo
+                <div className="addon-container">
+                    <div className="addon-text">
+                        <input type="checkbox"></input>
+                        <div>
+                            <label>Customizable profile</label>
+                            <span>Custom theme on your profile</span>
+                        </div>
+                    </div>
+                    <span>+$2/mo</span>
+                </div>
 
-            Go Back
-            Next Step
+            </div>
+
+            <div className="buttons-container">
+                <button className="back-button" disabled>
+                    Go back
+                </button>
+                <button className="next-button">
+                    Next Step
+                </button>
+            </div>
         </>
     );
 };
