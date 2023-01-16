@@ -2,6 +2,7 @@ import Info from './Info';
 import Addons from './Addons';
 import Plan from './Plan';
 import Summary from './Summary';
+import Thanks from './Thanks';
 
 const Form = () => {
     return (
@@ -57,7 +58,8 @@ const Form = () => {
                     {/* <Info /> */}
                     {/* <Plan /> */}
                     {/* <Addons /> */}
-                    <Summary />
+                    {/* <Summary /> */}
+                    <Thanks />
                 </section>
             </main>
         </>
