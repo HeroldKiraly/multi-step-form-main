@@ -19,17 +19,18 @@ const Summary = () => {
                     </div>
                     <hr></hr>
                     <div className="addons">
-                        <span>Online service</span>
+                        <h3>Online service</h3>
                         <span>+$10/yr</span>
                     </div>
                     <div className="addons">
-                        <span>Larger storage</span>
+                        <h3>Larger storage</h3>
                         <span>+$20/yr</span>
                     </div>
                 </div>
 
                 <div className="total-sum">
-                    Total (per month/year)
+                    <h3>Total (per month/year)</h3>
+                    <span>$120/yr</span>
                 </div>
             </div>
 
