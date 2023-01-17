@@ -155,14 +155,21 @@ section {
   justify-content: center;
   margin-left: 1rem;
 }
+
 .sidebar-item > div > span {
   color: var(--light-gray);
   font-size: 0.85rem;
   height: 1.2rem;
 }
+
 .sidebar-item > div > h3 {
   height: 1.5rem;
   font-size: 1rem;
+}
+
+.selected-tab {
+  background-color: var(--light-blue);
+  color: var(--marine-blue);
 }
 
 /* Form CSS End */
@@ -229,6 +236,15 @@ section {
 .selection-container > button:hover {
   cursor: pointer;
   outline: 2px solid var(--purplish-blue);
+}
+
+.selected-plan {
+  background-color: var(--magnolia) !important;
+  outline: 2px solid var(--purplish-blue) !important;
+}
+
+.selected-pricing {
+  color: var(--marine-blue) !important;
 }
 
 .button-text {
@@ -454,11 +470,13 @@ input:checked + .slider:before {
   justify-content: space-between;
   padding: 1.5rem;  
 }
+
 .total-sum > h3 {
   color: var(--cool-gray);
   font-size: 1rem;
   font-weight: 500;
 }
+
 .total-sum > span {
   color: var(--purplish-blue);
   font-size: 1.2rem;
@@ -477,9 +495,16 @@ input:checked + .slider:before {
   align-items: center;
   text-align: center;
 }
+
 .thanks-content > img {
   margin-bottom: 2rem;
   width: 17%;
 }
 
 /* Thanks CSS End */
+
+/* Mobile CSS Start */
+
+
+
+/* Mobile CSS End */

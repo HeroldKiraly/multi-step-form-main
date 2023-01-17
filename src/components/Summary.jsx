@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Summary = () => {
+const Summary = (props) => {
     return (
         <>
             <div className="summary-content">
@@ -13,7 +13,7 @@ const Summary = () => {
                     <div className="primary-plan">
                         <div>
                             <h2>Arcade (yearly)</h2>
-                            <a>Change</a>
+                            <a onClick={() => props.handleButtonClick('Plan')}>Change</a>
                         </div>
                         <span>$90/yr</span>
                     </div>
@@ -36,11 +36,11 @@ const Summary = () => {
 
 
             <div className="buttons-container">
-                <button className="back-button" disabled>
+                <button className="back-button" onClick={() => props.handleButtonClick('Addons')}>
                     Go back
                 </button>
-                <button className="next-button">
-                    Next Step
+                <button className="next-button" onClick={() => props.handleButtonClick('Thanks')}>
+                    Confirm
                 </button>
             </div>
         </>

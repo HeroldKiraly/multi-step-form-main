@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Addons = () => {
+const Addons = (props) => {
     return (
         <>
             <div className="addons-content">
@@ -45,10 +45,10 @@ const Addons = () => {
             </div>
 
             <div className="buttons-container">
-                <button className="back-button" disabled>
+                <button className="back-button" onClick={() => props.handleButtonClick('Plan')}>
                     Go back
                 </button>
-                <button className="next-button">
+                <button className="next-button" onClick={() => props.handleButtonClick('Summary')}>
                     Next Step
                 </button>
             </div>
