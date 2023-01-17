@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 const Plan = (props) => {
     let planButtons = document.querySelectorAll('.plan-button');
     let pricingLabels = document.querySelectorAll('.pricing-label');
+    let planPrices = document.querySelectorAll('.price');
+    let yearOfferLabels = document.querySelectorAll('.year-offer-text');
+    let checkBox = document.querySelectorAll('#checkbox-toggle');
 
     planButtons.forEach(button => button.addEventListener('click', function () {
         planButtons.forEach(planButton => planButton.classList.remove('selected-plan'));
@@ -30,7 +33,45 @@ const Plan = (props) => {
     })
 
     useEffect(() => {
+        if (props.pricing == 'yearly') {
+            yearOfferLabels.forEach(label => {
+                label.hidden = false;
+            })
+            planPrices.forEach(pricing => {
+                if (pricing.id == 'price-arcade') {
+                    pricing.innerHTML = '$90/yr'
+                }
+                if (pricing.id == 'price-advanced') {
+                    pricing.innerHTML = '$120/yr'
+                }
+                if (pricing.id == 'price-pro') {
+                    pricing.innerHTML = '$150/yr'
+                }
+            })
+        } else {
+            yearOfferLabels.forEach(label => {
+                label.hidden = true;
+            })
+            planPrices.forEach(pricing => {
+                if (pricing.id == 'price-arcade') {
+                    pricing.innerHTML = '$9/mo'
+                }
+                if (pricing.id == 'price-advanced') {
+                    pricing.innerHTML = '$12/mo'
+                }
+                if (pricing.id == 'price-pro') {
+                    pricing.innerHTML = '$15/mo'
+                }
+            })
+        }
+    })
 
+    useEffect(() => {
+        if (props.pricing == 'yearly') {
+            checkBox.checked = true
+        } else {
+            checkBox.checked = false;
+        }
     })
 
     return (
@@ -47,10 +88,10 @@ const Plan = (props) => {
                             <h2>
                                 Arcade
                             </h2>
-                            <span id="plan-price">
+                            <span id="price-arcade" className="price" >
                                 $9/mo
                             </span>
-                            <span id="yrl-offer">
+                            <span id="yrl-offer" className="year-offer-text" hidden>
                                 2 months free
                             </span>
                         </div>
@@ -61,10 +102,10 @@ const Plan = (props) => {
                             <h2>
                                 Advanced
                             </h2>
-                            <span id="plan-price">
+                            <span id="price-advanced" className="price">
                                 $12/mo
                             </span>
-                            <span id="yrl-offer">
+                            <span id="yrl-offer" className="year-offer-text" hidden>
                                 2 months free
                             </span>
                         </div>
@@ -75,10 +116,10 @@ const Plan = (props) => {
                             <h2>
                                 Pro
                             </h2>
-                            <span id="plan-price">
+                            <span id="price-pro" className="price">
                                 $15/mo
                             </span>
-                            <span id="yrl-offer">
+                            <span id="yrl-offer" className="year-offer-text" hidden>
                                 2 months free
                             </span>
                         </div>
@@ -89,7 +130,7 @@ const Plan = (props) => {
                         Monthly
                     </h2>
                     <label className="switch">
-                        <input type="checkbox" onChange={handlePriceSwitch}></input>
+                        <input id="checkbox-toggle" type="checkbox" onChange={handlePriceSwitch}></input>
                         <span className="slider round"></span>
                     </label>
                     <h2 id="yearly" className="pricing-label">

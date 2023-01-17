@@ -228,7 +228,8 @@ section {
   border: none;
   outline: 2px solid var(--light-gray);
   padding: 1rem;
-  height: 10rem;
+  min-height: 10rem;
+  max-height: fit-content;
   width: 8.5rem;
   background-color: var(--alabaster);
 }
@@ -247,8 +248,17 @@ section {
   color: var(--marine-blue) !important;
 }
 
+.button-text > .year-offer-text {
+  margin-top: 0.4rem;
+  color: var(--marine-blue);
+}
+
 .button-text {
+  display: flex;
+  flex-direction: column;
   text-align: left;
+  height: fit-content;
+  margin-top: 2.9rem;
 }
 
 .button-text > h2 {
