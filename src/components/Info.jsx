@@ -1,39 +1,46 @@
 import React, { useEffect } from 'react';
 
 const Info = (props) => {
-    const handleName = (value) => {
-        props.setName(value);
+    const handleName = (target) => {
+        props.setName(target.value);
+        checkValidation(target);
     }
-    const handleEmail = (value) => {
-        props.setEmail(value);
+    const handleEmail = (target) => {
+        props.setEmail(target.value);
+        checkValidation(target);
     }
-    const handlePhone = (value) => {
-        props.setPhone(value);
+    const handlePhone = (target) => {
+        props.setPhone(target.value);
+        checkValidation(target);
     }
 
-    useEffect(() => {
-        if (props.name != '') {
-            document.getElementById('required-name').hidden = true;            
+    const checkValidation = (target) => {
+        if (target.value == null || target.value.length == 0 || target.value == undefined) {
+            target.required = true;
+            document.getElementById(`required-${target.name}`).hidden = false;
         } else {
-            document.getElementById('required-name').hidden = false;            
+            target.required = false;
+            document.getElementById(`required-${target.name}`).hidden = true;
         }
-        if (props.email != '') {
-            document.getElementById('required-email').hidden = true;            
+    }
+
+    const buttonHandler = () => {
+        let inputFields = document.querySelectorAll('#form-input');
+        let valid = 0;
+        inputFields.forEach(field => {
+            if (field.value == null || field.value.length == 0 || field.value == undefined) {
+                field.required = true;
+                document.getElementById(`required-${field.name}`).hidden = false;
+            } else {
+                valid += 1;
+            }
+        })
+        if (valid >= 3) {
+            props.handleButtonClick('Plan')
         } else {
-            document.getElementById('required-email').hidden = false;            
+            return;
         }
-        if (props.phone != '') {
-            document.getElementById('required-phone').hidden = true;            
-        } else {
-            document.getElementById('required-phone').hidden = false;            
-        }
-        // if (props.phone != '' && props.email != '' && props.name != '') {
-        //     document.getElementById('next-button-info').disabled = false;
-        // }
-        // else {
-        //     document.getElementById('next-button-info').disabled = true;
-        // }
-    }, [props.name, props.email, props.phone]);
+    }
 
     return (
         <>
@@ -51,7 +58,7 @@ const Info = (props) => {
                         This field is required
                     </h2>
                 </div>
-                <input onChange={e => handleName(e.target.value)} value={props.name} placeholder="e.g. Stephen King" required></input>
+                <input id="form-input" type="text" onChange={e => handleName(e.target)} name="name" value={props.name} placeholder="e.g. Stephen King"></input>
 
                 <div className="input-labels">    
                     <h2>
@@ -61,24 +68,24 @@ const Info = (props) => {
                         This field is required
                     </h2>
                 </div>
-                <input onChange={e => handleEmail(e.target.value)} value={props.email} placeholder="e.g. stephenking@lorem.com" required></input>
+                <input id="form-input" type="email" onChange={e => handleEmail(e.target)} name="email" value={props.email} placeholder="e.g. stephenking@lorem.com"></input>
 
                 <div className="input-labels">    
                     <h2>
                         Phone Number
                     </h2>
-                    <h2 id="required-phone" className="required-label" hidden>
+                    <h2 id="required-phone" className="required-label phone" hidden>
                         This field is required
                     </h2>
                 </div>
-                <input onChange={e => handlePhone(e.target.value)} value={props.phone} placeholder="e.g. +1 234 567 890" required></input>
+                <input id="form-input" type="tel" onChange={e => handlePhone(e.target)} name="phone" value={props.phone} placeholder="e.g. +1 234 567 890"></input>
             </div>
 
             <div className="buttons-container">
                 <button className="back-button button-hidden" disabled>
                     Go back
                 </button>
-                <button id="next-button-info" className="next-button" onClick={() => props.handleButtonClick('Plan')}>
+                <button id="next-button-info" className="next-button" onClick={() => buttonHandler()}>
                     Next Step
                 </button>
             </div>

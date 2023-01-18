@@ -66,14 +66,6 @@ const Plan = (props) => {
         }
     })
 
-    useEffect(() => {
-        if (props.pricing == 'yearly') {
-            checkBox.checked = true
-        } else {
-            checkBox.checked = false;
-        }
-    })
-
     return (
         <>
             <div className="plan-content">

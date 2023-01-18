@@ -47,7 +47,7 @@ const Form = () => {
         <main>
             <aside className="sidebar">
                 <div className="sidebar-item">
-                    <h1 id="Info" className="tab">1</h1>
+                    <h1 id="Info" className="tab selected-tab">1</h1>
                     <div>
                         <span>
                             Step 1
