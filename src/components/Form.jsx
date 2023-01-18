@@ -17,8 +17,8 @@ import Thanks from './Thanks';
 
 const Form = () => {
     // Current Plan Data
-    const [ pricing, setPricing ] = useState('monthly');
-    const [ plan, setPlan ] = useState({})
+    const [ yearlyPricing, setYearlyPricing ] = useState(false);
+    const [ plan, setPlan ] = useState(undefined)
 
     // Information Form Data
     const [ name, setName ] = useState('');
@@ -105,8 +105,11 @@ const Form = () => {
                             />,
                         'Plan': <Plan 
                             handleButtonClick={handleButtonClick}
-                            setPricing={setPricing}
-                            pricing={pricing}
+                            currentTab={currentTab}
+                            setYearlyPricing={setYearlyPricing}
+                            yearlyPricing={yearlyPricing}
+                            setPlan={setPlan}
+                            plan={plan}
                             />,
                         'Addons': <Addons handleButtonClick={handleButtonClick}/>,
                         'Summary': <Summary handleButtonClick={handleButtonClick}/>,
