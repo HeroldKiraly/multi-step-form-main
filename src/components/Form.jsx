@@ -16,14 +16,20 @@ import Summary from './Summary';
 import Thanks from './Thanks';
 
 const Form = () => {
-    // Current Plan Data
-    const [ yearlyPricing, setYearlyPricing ] = useState(false);
-    const [ plan, setPlan ] = useState(undefined)
-
     // Information Form Data
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ phone, setPhone ] = useState('');
+    
+    // Current Plan Data
+    const [ yearlyPricing, setYearlyPricing ] = useState(false);
+    const [ plan, setPlan ] = useState(undefined);
+
+    // Addons Data
+    const [ addonOne, setAddonOne ] = useState(false);
+    const [ addonTwo, setAddonTwo ] = useState(false);
+    const [ addonThree, setAddonThree ] = useState(false);
+
 
     // Switch Tab Icon
     const [ currentTab, setCurrentTab ] = useState('Info');
@@ -111,8 +117,24 @@ const Form = () => {
                             setPlan={setPlan}
                             plan={plan}
                             />,
-                        'Addons': <Addons handleButtonClick={handleButtonClick}/>,
-                        'Summary': <Summary handleButtonClick={handleButtonClick}/>,
+                        'Addons': <Addons 
+                            handleButtonClick={handleButtonClick}
+                            yearlyPricing={yearlyPricing}
+                            addonOne={addonOne}
+                            addonTwo={addonTwo}
+                            addonThree={addonThree}
+                            setAddonOne={setAddonOne}
+                            setAddonTwo={setAddonTwo}
+                            setAddonThree={setAddonThree}
+                            />,
+                        'Summary': <Summary 
+                            handleButtonClick={handleButtonClick}
+                            addonOne={addonOne}
+                            addonTwo={addonTwo}
+                            addonThree={addonThree}
+                            yearlyPricing={yearlyPricing}
+                            plan={plan}
+                            />,
                         'Thanks': <Thanks />
                     }[currentTab]
                 }

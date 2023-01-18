@@ -1,4 +1,7 @@
 import React from 'react';
+import planData from '../data/plan.js';
+import addonData from '../data/addon.js';
+
 
 const Summary = (props) => {
     return (
@@ -12,24 +15,48 @@ const Summary = (props) => {
                 <div className="choices-container">
                     <div className="primary-plan">
                         <div>
-                            <h2>Arcade (yearly)</h2>
+                            <h2>{props.plan} ({props.yearlyPricing ? 'yearly' : 'monthly'})</h2>
                             <a onClick={() => props.handleButtonClick('Plan')}>Change</a>
                         </div>
-                        <span>$90/yr</span>
                     </div>
                     <hr></hr>
-                    <div className="addons">
-                        <h3>Online service</h3>
-                        <span>+$10/yr</span>
-                    </div>
-                    <div className="addons">
-                        <h3>Larger storage</h3>
-                        <span>+$20/yr</span>
-                    </div>
+                    {props.addonOne
+                        ?
+                        <div className="addons">
+                            <h3>{addonData[0][0].name}</h3>
+                            {props.yearlyPricing
+                                ? <span>+$10/yr</span>
+                                : <span>+$1/mo</span>
+                            }
+                        </div>
+                        : <></>
+                    }
+                    {props.addonTwo
+                        ?
+                        <div className="addons">
+                            <h3>{addonData[1][0].name}</h3>
+                            {props.yearlyPricing
+                                ? <span>+$20/yr</span>
+                                : <span>+$2/mo</span>
+                            }
+                        </div>
+                        : <></>
+                    }
+                    {props.addonThree
+                        ?
+                        <div className="addons">
+                            <h3>{addonData[2][0].name}</h3>
+                            {props.yearlyPricing
+                                ? <span>+$20/yr</span>
+                                : <span>+$2/mo</span>
+                            }
+                        </div>
+                        : <></>
+                    }
                 </div>
 
                 <div className="total-sum">
-                    <h3>Total (per month/year)</h3>
+                    <h3>Total (per {props.yearlyPricing ? 'year' : 'month'})</h3>
                     <span>$120/yr</span>
                 </div>
             </div>

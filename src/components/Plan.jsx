@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import planData from '../data/plans.js';
+import planData from '../data/plan.js';
 
 const Plan = (props) => {        
     const handlePriceSwitch = () => {
@@ -41,7 +41,7 @@ const Plan = (props) => {
                     You have the option of monthly or yearly billing.
                 </p>
                 <div className="selection-container">
-                    <button id="arcade-plan" name="arcade" className="plan-button">
+                    <button id="arcade-plan" name="Arcade" className="plan-button">
                         <img src="./src/assets/images/icon-arcade.svg"></img>
                         <div className="button-text">
                             <h2>
@@ -63,7 +63,7 @@ const Plan = (props) => {
                             }
                         </div>
                     </button>
-                    <button id="advanced-plan" name="advanced" className="plan-button">
+                    <button id="advanced-plan" name="Advanced" className="plan-button">
                         <img src="./src/assets/images/icon-advanced.svg"></img>
                         <div className="button-text">
                             <h2>
@@ -85,7 +85,7 @@ const Plan = (props) => {
                             }
                         </div>
                     </button>
-                    <button id="pro-plan" name="pro" className="plan-button">
+                    <button id="pro-plan" name="Pro" className="plan-button">
                         <img src="./src/assets/images/icon-pro.svg"></img>
                         <div className="button-text">
                             <h2>

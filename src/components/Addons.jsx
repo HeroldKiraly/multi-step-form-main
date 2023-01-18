@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Addons = (props) => {
+    const handleClick = (target) => {
+        if (target.classList.contains('selected-addon')) {
+            target.classList.remove('selected-addon');
+            document.getElementById(`${target.name}`).checked = false;
+            if (target.name == 'addonOne') {
+                props.setAddonOne(false);
+            } else if (target.name == 'addonTwo') {
+                props.setAddonTwo(false);
+            } else {
+                props.setAddonThree(false);
+            }
+        } else {
+            target.classList.add('selected-addon');
+            document.getElementById(`${target.name}`).checked = true;
+            if (target.name == 'addonOne') {
+                props.setAddonOne(true);
+            } else if (target.name == 'addonTwo') {
+                props.setAddonTwo(true);
+            } else {
+                props.setAddonThree(true);
+            }
+        }
+    }
+    
     return (
         <>
             <div className="addons-content">
@@ -9,38 +33,47 @@ const Addons = (props) => {
                     Add-ons help enhance your gaming experience.
                 </p>
 
-                <div className="addon-container">
+                <button name="addonOne" value="0" className="addon-container" onClick={e => handleClick(e.currentTarget)}>
                     <div className="addon-text">
-                        <input type="checkbox"></input>
+                        <input id="addonOne" type="checkbox"></input>
                         <div>
-                            <label>Online services</label>
+                            <h2>Online services</h2>
                             <span>Access to multiplayer games</span>
                         </div>
                     </div>
-                    <span>+$1/mo</span>
-                </div>
+                    {props.yearlyPricing 
+                        ? <span className="addon-price">+$10/yr</span>
+                        : <span className="addon-price">+$1/mo</span>
+                    }
+                </button>
 
-                <div className="addon-container">
+                <button name="addonTwo" value="1" className="addon-container" onClick={e => handleClick(e.currentTarget)}>
                     <div className="addon-text">
-                        <input type="checkbox"></input>
+                        <input id="addonTwo" type="checkbox" className=""></input>
                         <div>
-                            <label>Larger storage</label>
+                            <h2>Larger storage</h2>
                             <span>Extra 1TB of cloud save</span>
                         </div>
                     </div>
-                    <span>+$2/mo</span>
-                </div>
+                    {props.yearlyPricing 
+                        ? <span className="addon-price">+$20/yr</span>
+                        : <span className="addon-price">+$2/mo</span>
+                    }
+                </button>
 
-                <div className="addon-container">
+                <button name="addonThree" value="2" className="addon-container" onClick={e => handleClick(e.currentTarget)}>
                     <div className="addon-text">
-                        <input type="checkbox"></input>
+                        <input id="addonThree" type="checkbox"></input>
                         <div>
-                            <label>Customizable profile</label>
+                            <h2>Customizable profile</h2>
                             <span>Custom theme on your profile</span>
                         </div>
                     </div>
-                    <span>+$2/mo</span>
-                </div>
+                    {props.yearlyPricing 
+                        ? <span className="addon-price">+$20/yr</span>
+                        : <span className="addon-price">+$2/mo</span>
+                    }
+                </button>
 
             </div>
 
