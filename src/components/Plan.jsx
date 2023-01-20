@@ -12,9 +12,9 @@ const Plan = (props) => {
     }
     
     const handleNextButton = () => {    
-        // if (props.plan == undefined) {
-        //     return;
-        // }
+        if (props.plan == undefined) {
+            return;
+        }
         props.handleButtonClick('Addons')
     }
     

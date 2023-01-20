@@ -85,7 +85,7 @@ const Info = (props) => {
                 <button className="back-button button-hidden" disabled>
                     Go back
                 </button>
-                <button id="next-button-info" className="next-button" onClick={() => props.handleButtonClick('Plan')}>
+                <button id="next-button-info" className="next-button" onClick={() => buttonHandler()}>
                     Next Step
                 </button>
             </div>
