@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import planData from '../data/plan.js';
+import arcadeImage from '../assets/images/icon-arcade.svg';
+import advancedImage from '../assets/images/icon-advanced.svg';
+import proImage from '../assets/images/icon-pro.svg';
 
 const Plan = (props) => {        
     const handlePriceSwitch = () => {
@@ -42,7 +45,7 @@ const Plan = (props) => {
                 </p>
                 <div className="selection-container">
                     <button id="arcade-plan" name="Arcade" className="plan-button">
-                        <img src="./src/assets/images/icon-arcade.svg"></img>
+                        <img src={arcadeImage}></img>
                         <div className="button-text">
                             <h2>
                                 Arcade
@@ -64,7 +67,7 @@ const Plan = (props) => {
                         </div>
                     </button>
                     <button id="advanced-plan" name="Advanced" className="plan-button">
-                        <img src="./src/assets/images/icon-advanced.svg"></img>
+                        <img src={advancedImage}></img>
                         <div className="button-text">
                             <h2>
                                 Advanced
@@ -86,7 +89,7 @@ const Plan = (props) => {
                         </div>
                     </button>
                     <button id="pro-plan" name="Pro" className="plan-button">
-                        <img src="./src/assets/images/icon-pro.svg"></img>
+                        <img src={proImage}></img>
                         <div className="button-text">
                             <h2>
                                 Pro
