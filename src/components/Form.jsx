@@ -1,13 +1,3 @@
-/* //! Currently known bugs:
-    - Personal Info form starts with Invalid field and "This field is required" text visible
-    - Select plan does not save the previous state of the toggle button and text fields whenever the user goes back to the page
-*/
-/* //? Current To-Do:
-    - Save plan data for use in the Summary
-    - Add addons functionality and save addons data to be pushed to Summary
-    - Add Summary functionality
-*/
-
 import React, { useState, useEffect } from 'react';
 import Info from './Info';
 import Addons from './Addons';

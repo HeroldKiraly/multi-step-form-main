@@ -49,8 +49,8 @@ const Plan = (props) => {
                             </h2>
                             <span id="price-arcade" className="price" >
                                 {props.yearlyPricing 
-                                    ? `${planData[0][2].costYearly}`
-                                    : `${planData[0][1].costMonthly}`
+                                    ? `$${planData["Arcade"].price * 10}/yr`
+                                    : `$${planData["Arcade"].price}/mo`
                                 }
                             </span>
                             {props.yearlyPricing
@@ -71,8 +71,8 @@ const Plan = (props) => {
                             </h2>
                             <span id="price-advanced" className="price">
                                 {props.yearlyPricing 
-                                    ? `${planData[1][2].costYearly}`
-                                    : `${planData[1][1].costMonthly}`
+                                    ? `$${planData["Advanced"].price * 10}/yr`
+                                    : `$${planData["Advanced"].price}/mo`
                                 }
                             </span>
                             {props.yearlyPricing
@@ -93,8 +93,8 @@ const Plan = (props) => {
                             </h2>
                             <span id="price-pro" className="price">
                                 {props.yearlyPricing 
-                                    ? `${planData[2][2].costYearly}`
-                                    : `${planData[2][1].costMonthly}`
+                                    ? `$${planData["Pro"].price * 10}/yr`
+                                    : `$${planData["Pro"].price}/mo`
                                 }
                             </span>
                             {props.yearlyPricing

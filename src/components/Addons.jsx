@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import addonData from '../data/addon.js';
 
 const Addons = (props) => {
     const handleClick = (target) => {
@@ -24,6 +25,21 @@ const Addons = (props) => {
             }
         }
     }
+
+    useEffect(() => {
+        if (props.addonOne) {
+            document.querySelector('.addonOne').classList.add('selected-addon');
+            document.getElementById('addonOne').checked = true;
+        }
+        if (props.addonTwo) {
+            document.querySelector('.addonTwo').classList.add('selected-addon');
+            document.getElementById('addonTwo').checked = true;
+        }
+        if (props.addonThree) {
+            document.querySelector('.addonThree').classList.add('selected-addon');
+            document.getElementById('addonThree').checked = true;
+        }
+    }, [])
     
     return (
         <>
@@ -33,7 +49,7 @@ const Addons = (props) => {
                     Add-ons help enhance your gaming experience.
                 </p>
 
-                <button name="addonOne" value="0" className="addon-container" onClick={e => handleClick(e.currentTarget)}>
+                <button name="addonOne" value="0" className="addon-container addonOne" onClick={e => handleClick(e.currentTarget)}>
                     <div className="addon-text">
                         <input id="addonOne" type="checkbox"></input>
                         <div>
@@ -42,12 +58,12 @@ const Addons = (props) => {
                         </div>
                     </div>
                     {props.yearlyPricing 
-                        ? <span className="addon-price">+$10/yr</span>
-                        : <span className="addon-price">+$1/mo</span>
+                        ? <span className="addon-price">+${addonData["addonOne"].price * 10}/yr</span>
+                        : <span className="addon-price">+${addonData["addonOne"].price}/mo</span>
                     }
                 </button>
 
-                <button name="addonTwo" value="1" className="addon-container" onClick={e => handleClick(e.currentTarget)}>
+                <button name="addonTwo" value="1" className="addon-container addonTwo" onClick={e => handleClick(e.currentTarget)}>
                     <div className="addon-text">
                         <input id="addonTwo" type="checkbox" className=""></input>
                         <div>
@@ -56,12 +72,12 @@ const Addons = (props) => {
                         </div>
                     </div>
                     {props.yearlyPricing 
-                        ? <span className="addon-price">+$20/yr</span>
-                        : <span className="addon-price">+$2/mo</span>
+                        ? <span className="addon-price">+${addonData["addonTwo"].price * 10}/yr</span>
+                        : <span className="addon-price">+${addonData["addonTwo"].price}/mo</span>
                     }
                 </button>
 
-                <button name="addonThree" value="2" className="addon-container" onClick={e => handleClick(e.currentTarget)}>
+                <button name="addonThree" value="2" className="addon-container addonThree" onClick={e => handleClick(e.currentTarget)}>
                     <div className="addon-text">
                         <input id="addonThree" type="checkbox"></input>
                         <div>
@@ -70,8 +86,8 @@ const Addons = (props) => {
                         </div>
                     </div>
                     {props.yearlyPricing 
-                        ? <span className="addon-price">+$20/yr</span>
-                        : <span className="addon-price">+$2/mo</span>
+                        ? <span className="addon-price">+${addonData["addonThree"].price * 10}/yr</span>
+                        : <span className="addon-price">+${addonData["addonThree"].price}/mo</span>
                     }
                 </button>
 

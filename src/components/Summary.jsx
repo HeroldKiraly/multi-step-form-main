@@ -4,6 +4,40 @@ import addonData from '../data/addon.js';
 
 
 const Summary = (props) => {
+    let plan = props.plan;
+
+    let sum = 0;
+    const sumOfAll = () => {
+        let sumOfAddons = 0;
+        if (props.yearlyPricing) {
+            if (props.addonOne) {
+                sumOfAddons += addonData["addonOne"].price * 10;
+            }
+            if (props.addonTwo) {
+                sumOfAddons += addonData["addonTwo"].price * 10;
+            }
+            if (props.addonThree) {
+                sumOfAddons += addonData["addonThree"].price * 10;
+            }
+            sum += sumOfAddons;
+            sum += planData[`${plan}`].price * 10;
+        } else {
+            if (props.addonOne) {
+                sumOfAddons += addonData["addonOne"].price;
+            }
+            if (props.addonTwo) {
+                sumOfAddons += addonData["addonTwo"].price;
+            }
+            if (props.addonThree) {
+                sumOfAddons += addonData["addonThree"].price;
+            }
+            sum += sumOfAddons;
+            sum += planData[`${plan}`].price;
+        }
+        return sum;
+    }
+    sumOfAll();
+
     return (
         <>
             <div className="summary-content">
@@ -15,18 +49,19 @@ const Summary = (props) => {
                 <div className="choices-container">
                     <div className="primary-plan">
                         <div>
-                            <h2>{props.plan} ({props.yearlyPricing ? 'yearly' : 'monthly'})</h2>
+                            <h2>{plan} ({props.yearlyPricing ? 'yearly' : 'monthly'})</h2>
                             <a onClick={() => props.handleButtonClick('Plan')}>Change</a>
                         </div>
+                        <span>${props.yearlyPricing ? planData[`${plan}`].price * 10 : planData[`${plan}`].price}/{props.yearlyPricing ? 'yr' : 'mo'}</span>
                     </div>
                     <hr></hr>
                     {props.addonOne
                         ?
                         <div className="addons">
-                            <h3>{addonData[0][0].name}</h3>
+                            <h3>{addonData["addonOne"].name}</h3>
                             {props.yearlyPricing
-                                ? <span>+$10/yr</span>
-                                : <span>+$1/mo</span>
+                                ? <span>+${addonData["addonOne"].price * 10}/yr</span>
+                                : <span>+${addonData["addonOne"].price}/mo</span>
                             }
                         </div>
                         : <></>
@@ -34,10 +69,10 @@ const Summary = (props) => {
                     {props.addonTwo
                         ?
                         <div className="addons">
-                            <h3>{addonData[1][0].name}</h3>
+                            <h3>{addonData["addonTwo"].name}</h3>
                             {props.yearlyPricing
-                                ? <span>+$20/yr</span>
-                                : <span>+$2/mo</span>
+                                ? <span>+${addonData["addonTwo"].price * 10}/yr</span>
+                                : <span>+${addonData["addonTwo"].price}/mo</span>
                             }
                         </div>
                         : <></>
@@ -45,10 +80,10 @@ const Summary = (props) => {
                     {props.addonThree
                         ?
                         <div className="addons">
-                            <h3>{addonData[2][0].name}</h3>
+                            <h3>{addonData["addonThree"].name}</h3>
                             {props.yearlyPricing
-                                ? <span>+$20/yr</span>
-                                : <span>+$2/mo</span>
+                                ? <span>+${addonData["addonThree"].price * 10}/yr</span>
+                                : <span>+${addonData["addonThree"].price}/mo</span>
                             }
                         </div>
                         : <></>
@@ -57,7 +92,7 @@ const Summary = (props) => {
 
                 <div className="total-sum">
                     <h3>Total (per {props.yearlyPricing ? 'year' : 'month'})</h3>
-                    <span>$120/yr</span>
+                    <span>${sum}/{props.yearlyPricing ? 'yr' : 'mo'}</span>
                 </div>
             </div>
 
